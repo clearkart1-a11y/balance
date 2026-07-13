@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Balance — Balance Platform</title>
+<style>
+  :root{--ink:#1a1a2e;--paper:#faf8f4;--muted:#6b6b7b;--card:#fff;--soc:#c8552c;--soc2:#e8845c;--eco:#0f6e5c}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6}
+  .wrap{max-width:900px;margin:0 auto;padding:0 24px}
+  header{padding:16px 0;position:sticky;top:0;background:rgba(250,248,244,.95);backdrop-filter:blur(6px);z-index:10;border-bottom:1px solid #e5e0d5}
+  header .wrap{display:flex;justify-content:space-between;align-items:center;max-width:1040px}
+  .logo{font-weight:800;font-size:1.2rem;letter-spacing:1px;text-decoration:none;color:var(--ink)}
+  .logo .dot{color:var(--soc)}
+  nav a{color:var(--muted);text-decoration:none;margin-left:20px;font-size:.88rem}
+  nav a.active{color:var(--soc);font-weight:700}
+  nav a:hover{color:var(--soc)}
+  @media(max-width:640px){nav a{margin-left:12px;font-size:.8rem}}
+
+  .pagehero{background:linear-gradient(135deg,var(--soc),var(--soc2));color:#fff;padding:56px 0;text-align:center}
+  .pagehero h1{font-size:clamp(1.8rem,5vw,2.6rem);margin-bottom:10px}
+  .pagehero p{max-width:560px;margin:0 auto;opacity:.92}
+
+  section{padding:48px 0}
+  h2{font-size:1.5rem;margin-bottom:6px}
+  .sub{color:var(--muted);margin-bottom:28px;font-size:.95rem}
+
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:20px}
+  @media(max-width:700px){.duo{grid-template-columns:1fr}}
+  .dcard{background:var(--card);border:1px solid #e9e4d8;border-radius:14px;padding:26px}
+  .dcard .icon{font-size:2rem;margin-bottom:10px}
+  .dcard h3{font-size:1.05rem;margin-bottom:8px}
+  .dcard.keep{border-top:5px solid var(--eco)}
+  .dcard.question{border-top:5px solid var(--soc)}
+  .dcard.keep h3{color:var(--eco)} .dcard.question h3{color:var(--soc)}
+  .dcard p{font-size:.9rem;color:var(--muted)}
+
+  .exgrid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:28px}
+  @media(max-width:700px){.exgrid{grid-template-columns:1fr}}
+  .ex{background:var(--card);border:1px solid #e9e4d8;border-radius:14px;overflow:hidden}
+  .ex .top{padding:12px 20px;font-weight:700;font-size:.9rem;color:#fff;background:var(--soc)}
+  .ex .body{padding:20px}
+  .ex .body p{font-size:.88rem;color:#444;padding:8px 0;border-bottom:1px dashed #eee7d8}
+  .ex .body p:last-child{border-bottom:none}
+  .ex .body b.g{color:var(--eco)} .ex .body b.r{color:var(--soc)}
+
+  .note{background:#fdf3e7;border:1px solid #f0d9b8;border-radius:10px;padding:14px 18px;margin-top:32px;font-size:.85rem;color:#8a6420}
+
+  .back{display:inline-block;margin:24px 0 48px;color:var(--soc);text-decoration:none;font-weight:700;font-size:.9rem}
+  footer{padding:32px 0 48px;text-align:center;color:var(--muted);font-size:.82rem;border-top:1px solid #e5e0d5}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="index.html">BALANCE<span class="dot">.</span></a>
+    <nav>
+      <a href="political.html">Political</a>
+      <a href="economic.html">Economic</a>
+      <a href="social.html" class="active">Social</a>
+      <a href="actions.html">Take Action</a>
+    </nav>
+  </div>
+</header>
+
+<div class="pagehero">
+  <h1>🕊️ Social Balance</h1>
+  <p>Social, cultural, and religious practices shape life more than any law. Balance asks one honest question: what does each practice actually do to people?</p>
+</div>
+
+<section class="wrap">
+  <h2>Living culture vs. empty ritualism</h2>
+  <p class="sub">The test is simple — does a practice uplift and unite, or burden and divide?</p>
+  <div class="duo">
+    <div class="dcard keep">
+      <div class="icon">🌱</div>
+      <h3>Living Culture — keep and celebrate</h3>
+      <p>Practices that bind communities, pass on wisdom, mark life's moments with meaning, and include everyone. Culture that serves people.</p>
+    </div>
+    <div class="dcard question">
+      <div class="icon">⛓️</div>
+      <h3>Empty Ritualism — question honestly</h3>
+      <p>Practices continued only from fear or habit — that burden families financially, exclude people, or exploit belief for profit. Ritual that people serve.</p>
+    </div>
+  </div>
+
+  <div class="exgrid">
+    <div class="ex">
+      <div class="top">Example: Festivals</div>
+      <div class="body">
+        <p><b class="g">Uplifts:</b> community gathering, shared food, art, music, generational bonding.</p>
+        <p><b class="r">Burdens:</b> competitive spending, debt for display, pollution ignored in the name of custom.</p>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="top">Example: Weddings & Ceremonies</div>
+      <div class="body">
+        <p><b class="g">Uplifts:</b> two families joining, community witness, celebration of commitment.</p>
+        <p><b class="r">Burdens:</b> families pushed into years of debt to meet social expectations of spectacle.</p>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="top">Example: Religious Practice</div>
+      <div class="body">
+        <p><b class="g">Uplifts:</b> ethics, charity, inner discipline, service to others, community support in hard times.</p>
+        <p><b class="r">Burdens:</b> middlemen monetising faith, fear-based compliance, division between communities.</p>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="top">Example: Social Customs</div>
+      <div class="body">
+        <p><b class="g">Uplifts:</b> respect for elders, hospitality, neighbourhood mutual aid.</p>
+        <p><b class="r">Burdens:</b> customs that silence questions, restrict choices, or treat any group as lesser.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="note">🤝 <strong>Balance is not anti-culture and not anti-religion.</strong> It is pro-awareness: keep what uplifts, question what doesn't — and let every community decide with open eyes.</div>
+
+  <a class="back" href="actions.html" style="background:var(--soc);color:#fff;padding:12px 26px;border-radius:8px">🎯 Take Social Action →</a>
+  <br>
+  <a class="back" href="index.html">← Back to all balances</a>
+</section>
+
+<footer>
+  <p><strong>BALANCE.</strong> — An awareness platform for world equilibrium · Concept demo · 2026</p>
+</footer>
+
+</body>
+</html>
