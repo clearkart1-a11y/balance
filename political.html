@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Political Balance — Balance Platform</title>
+<style>
+  :root{--ink:#1a1a2e;--paper:#faf8f4;--muted:#6b6b7b;--card:#fff;--pol:#2c5f8a;--pol2:#4a86b8;--warn:#c8552c;--eco:#0f6e5c}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6}
+  .wrap{max-width:900px;margin:0 auto;padding:0 24px}
+  header{padding:16px 0;position:sticky;top:0;background:rgba(250,248,244,.95);backdrop-filter:blur(6px);z-index:10;border-bottom:1px solid #e5e0d5}
+  header .wrap{display:flex;justify-content:space-between;align-items:center;max-width:1040px}
+  .logo{font-weight:800;font-size:1.2rem;letter-spacing:1px;text-decoration:none;color:var(--ink)}
+  .logo .dot{color:#c8552c}
+  nav a{color:var(--muted);text-decoration:none;margin-left:20px;font-size:.88rem}
+  nav a.active{color:var(--pol);font-weight:700}
+  nav a:hover{color:var(--pol)}
+  @media(max-width:640px){nav a{margin-left:12px;font-size:.8rem}}
+
+  .pagehero{background:linear-gradient(135deg,var(--pol),var(--pol2));color:#fff;padding:56px 0;text-align:center}
+  .pagehero h1{font-size:clamp(1.8rem,5vw,2.6rem);margin-bottom:10px}
+  .pagehero p{max-width:560px;margin:0 auto;opacity:.92}
+
+  section{padding:48px 0}
+  h2{font-size:1.5rem;margin-bottom:6px}
+  .sub{color:var(--muted);margin-bottom:28px;font-size:.95rem}
+
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:48px}
+  @media(max-width:700px){.compare{grid-template-columns:1fr}}
+  .cpanel{background:var(--card);border:1px solid #e9e4d8;border-radius:14px;padding:28px}
+  .cpanel h3{font-size:1.1rem;margin-bottom:4px}
+  .cpanel .role{font-size:.78rem;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+  .cpanel.today{border-top:5px solid var(--warn)}
+  .cpanel.vision{border-top:5px solid var(--eco)}
+  .cpanel ul{list-style:none}
+  .cpanel li{padding:9px 0 9px 26px;position:relative;font-size:.92rem;color:#444;border-bottom:1px dashed #eee7d8}
+  .cpanel li:last-child{border-bottom:none}
+  .cpanel.today li::before{content:"✕";position:absolute;left:0;color:var(--warn);font-weight:700}
+  .cpanel.vision li::before{content:"✓";position:absolute;left:0;color:var(--eco);font-weight:700}
+
+  .journey{background:var(--card);border:1px solid #e9e4d8;border-radius:14px;padding:32px;margin-bottom:48px}
+  .journey h2{margin-bottom:24px}
+  .jrow{display:flex;gap:18px;align-items:flex-start;padding:14px 0;border-bottom:1px dashed #eee7d8}
+  .jrow:last-child{border-bottom:none}
+  .jnum{flex:0 0 36px;height:36px;border-radius:50%;background:var(--pol);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
+  .jrow p{font-size:.92rem;color:#444}
+  .jrow b{display:block;color:var(--ink)}
+
+  .back{display:inline-block;margin:0 0 48px;color:var(--pol);text-decoration:none;font-weight:700;font-size:.9rem}
+  footer{padding:32px 0 48px;text-align:center;color:var(--muted);font-size:.82rem;border-top:1px solid #e5e0d5}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="index.html">BALANCE<span class="dot">.</span></a>
+    <nav>
+      <a href="political.html" class="active">Political</a>
+      <a href="economic.html">Economic</a>
+      <a href="social.html">Social</a>
+      <a href="actions.html">Take Action</a>
+    </nav>
+  </div>
+</header>
+
+<div class="pagehero">
+  <h1>🏛️ Political Balance</h1>
+  <p>When democracy becomes a two-party duel, the common man becomes a spectator. Political balance puts the individual back on the ballot.</p>
+</div>
+
+<section class="wrap">
+  <h2>The party machine vs. the individual voice</h2>
+  <p class="sub">What politics looks like today — and what balanced representation could look like.</p>
+  <div class="compare">
+    <div class="cpanel today">
+      <h3>Today: Party Dualism</h3>
+      <div class="role">The imbalance</div>
+      <ul>
+        <li>Two big parties dominate; every issue becomes us-vs-them</li>
+        <li>A capable individual can't compete with party money and machinery</li>
+        <li>Representatives answer to the party first, voters second</li>
+        <li>The common man's role ends the moment he casts his vote</li>
+      </ul>
+    </div>
+    <div class="cpanel vision">
+      <h3>The Vision: Individual Representation</h3>
+      <div class="role">The balance</div>
+      <ul>
+        <li>Independent candidates visible and viable — platform-supported awareness</li>
+        <li>Voters judge a person's record, not a party symbol</li>
+        <li>Direct accountability: representative reports to constituents</li>
+        <li>Power flows up from people, not down from party headquarters</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="journey">
+    <h2>Example: the common man's journey to representation</h2>
+    <div class="jrow">
+      <div class="jnum">1</div>
+      <p><b>A teacher in your district wants to stand for local office.</b> Today she needs a party ticket, funds, and connections she doesn't have.</p>
+    </div>
+    <div class="jrow">
+      <div class="jnum">2</div>
+      <p><b>On Balance, her profile speaks for itself.</b> Her work, her positions, her community record — visible to every voter, no party filter.</p>
+    </div>
+    <div class="jrow">
+      <div class="jnum">3</div>
+      <p><b>Citizens compare candidates as people, not symbols.</b> The platform levels the awareness playing field that money used to buy.</p>
+    </div>
+    <div class="jrow">
+      <div class="jnum">4</div>
+      <p><b>Independent voices enter the system.</b> Parties must compete on merit again. That is political balance.</p>
+    </div>
+  </div>
+
+  <a class="back" href="actions.html" style="background:var(--pol);color:#fff;padding:12px 26px;border-radius:8px">🎯 Take Political Action →</a>
+  <br>
+  <a class="back" href="index.html">← Back to all balances</a>
+</section>
+
+<footer>
+  <p><strong>BALANCE.</strong> — An awareness platform for world equilibrium · Concept demo · 2026</p>
+</footer>
+
+</body>
+</html>
