@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Monopoly Quiz — Guess Which Brands Big Companies Own | Balance Platform</title>
+<meta name="description" content="Free brand-ownership quiz: which brands belong to Coca-Cola, HUL, Nestlé and Tata? Thums Up, Maggi, Bata — test yourself and see how few companies own your shelf.">
+<link rel="canonical" href="https://clearkart1-a11y.github.io/balance/monopoly.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Balance">
+<meta property="og:title" content="The Monopoly Quiz — you think you have choice? 🎮">
+<meta property="og:description" content="Tap the brands you think belong to the giant. 4 rounds. Prepare to be shocked.">
+<meta property="og:url" content="https://clearkart1-a11y.github.io/balance/monopoly.html">
+<meta name="twitter:card" content="summary">
+<style>
+  :root{--ink:#1a1a2e;--paper:#faf8f4;--muted:#6b6b7b;--card:#fff;
+    --pol:#2c5f8a;--eco:#0f6e5c;--soc:#c8552c;--gold:#d9a324;--bad:#c0392b;--good:#0f6e5c}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6}
+  .wrap{max-width:640px;margin:0 auto;padding:0 24px}
+  header{padding:16px 0;position:sticky;top:0;background:rgba(250,248,244,.95);backdrop-filter:blur(6px);z-index:10;border-bottom:1px solid #e5e0d5}
+  header .inner{max-width:1040px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center}
+  .logo{font-weight:800;font-size:1.2rem;letter-spacing:1px;text-decoration:none;color:var(--ink)}
+  .logo .dot{color:var(--soc)}
+  nav a{color:var(--muted);text-decoration:none;margin-left:16px;font-size:.85rem}
+  nav a.active{color:var(--gold);font-weight:700}
+  @media(max-width:640px){nav a{margin-left:10px;font-size:.78rem}}
+
+  .stage{padding:48px 0 64px;text-align:center}
+  .kicker{text-transform:uppercase;letter-spacing:2px;font-size:.72rem;color:var(--soc);font-weight:800;margin-bottom:10px}
+  h1{font-size:clamp(1.7rem,5vw,2.3rem);line-height:1.2;margin-bottom:12px}
+  .lead{color:var(--muted);max-width:460px;margin:0 auto 28px;font-size:.98rem}
+  .btn{display:inline-block;background:var(--eco);color:#fff;padding:14px 36px;border-radius:10px;text-decoration:none;font-weight:700;font-size:1rem;border:none;cursor:pointer}
+  .btn.dark{background:var(--ink)} .btn.ghost{background:transparent;color:var(--eco);border:1.5px solid var(--eco)}
+  .btn:disabled{opacity:.4;cursor:default}
+
+  .qcard{background:var(--card);border:1px solid #e9e4d8;border-radius:16px;padding:30px 26px;text-align:center;box-shadow:0 4px 16px rgba(26,26,46,.06)}
+  .round{font-size:.75rem;letter-spacing:1.5px;color:var(--muted);font-weight:700;margin-bottom:6px}
+  .qcard h2{font-size:1.3rem;margin-bottom:4px}
+  .qcard .hint{color:var(--muted);font-size:.85rem;margin-bottom:20px}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:20px}
+  @media(min-width:520px){.grid{grid-template-columns:repeat(4,1fr)}}
+  .chip{padding:16px 8px;border-radius:12px;border:2px solid #e9e4d8;background:#f7f4ec;font-weight:700;font-size:.9rem;cursor:pointer;transition:all .15s}
+  .chip.sel{border-color:var(--ink);background:var(--ink);color:#fff}
+  .chip.owned{border-color:var(--good);background:#e7f4ef;color:var(--good)}
+  .chip.owned.was-sel{background:var(--good);color:#fff}
+  .chip.notowned{border-color:#eee;opacity:.55}
+  .chip.wrong{border-color:var(--bad);background:#fdeceb;color:var(--bad);text-decoration:line-through}
+  .verdict{font-size:.95rem;margin:8px 0 18px;min-height:24px}
+  .fact{background:#fdf3e7;border:1px solid #f0d9b8;border-radius:12px;padding:14px 18px;font-size:.88rem;color:#8a6420;text-align:left;margin-bottom:18px;display:none}
+  .scoreline{font-size:.85rem;color:var(--muted);margin-top:14px}
+
+  .result .scorebig{font-size:3.6rem;font-weight:800;line-height:1;margin-bottom:4px}
+  .result .outof{color:var(--muted);font-size:.9rem;margin-bottom:14px}
+  .shock{font-size:1.2rem;font-weight:700;max-width:460px;margin:0 auto 22px}
+  .sharebtns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:26px}
+  .next-links{font-size:.9rem;color:var(--muted)}
+  .next-links a{color:var(--eco);font-weight:700;text-decoration:none}
+  footer{padding:32px 0 48px;text-align:center;color:var(--muted);font-size:.82rem;border-top:1px solid #e5e0d5}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <a class="logo" href="index.html">BALANCE<span class="dot">.</span></a>
+    <nav>
+      <a href="political.html">Political</a>
+      <a href="economic.html">Economic</a>
+      <a href="social.html">Social</a>
+      <a href="actions.html">Act</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="daily.html">Daily</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <!-- INTRO -->
+  <div class="stage" id="intro">
+    <div class="kicker">The Monopoly Quiz</div>
+    <h1>You think you have choice? 🎮</h1>
+    <p class="lead">4 rounds. We show you brands — you tap the ones you think belong to the giant. Then we show you the truth. Warning: it stings.</p>
+    <button class="btn" onclick="start()">Play →</button>
+  </div>
+
+  <!-- ROUND -->
+  <div class="stage" id="game" style="display:none">
+    <div class="qcard">
+      <div class="round" id="rnum"></div>
+      <h2 id="parent"></h2>
+      <div class="hint">Tap every brand you think it owns 👇</div>
+      <div class="grid" id="grid"></div>
+      <div class="verdict" id="verdict"></div>
+      <div class="fact" id="fact"></div>
+      <button class="btn" id="checkBtn" onclick="check()">Reveal the Truth</button>
+      <button class="btn dark" id="nextBtn" onclick="next()" style="display:none">Next Round →</button>
+      <div class="scoreline" id="scoreline"></div>
+    </div>
+  </div>
+
+  <!-- RESULT -->
+  <div class="stage result" id="res" style="display:none">
+    <div class="kicker">Your Result</div>
+    <div class="scorebig" id="finalScore"></div>
+    <div class="outof" id="finalOutof"></div>
+    <p class="shock" id="shockline"></p>
+    <p class="lead">That confusion is not an accident — it's the strategy. A handful of giants own the "choices" on your shelf. That's why Balance exists.</p>
+    <div class="sharebtns">
+      <button class="btn" onclick="shareWA()">📲 Challenge friends on WhatsApp</button>
+      <button class="btn ghost" onclick="location.reload()">↻ Play Again</button>
+    </div>
+    <p class="next-links">Next: <a href="quiz.html">your Balance Score 🧭</a> · <a href="economic.html">see the alternatives 📊</a> · <a href="actions.html">take action 🎯</a></p>
+  </div>
+</div>
+
+<footer>
+  <p><strong>BALANCE.</strong> — An awareness platform for world equilibrium · Concept demo · 2026</p>
+</footer>
+
+<script>
+const SITE='https://clearkart1-a11y.github.io/balance/';
+// owned:true = belongs to parent. Facts checked against public records.
+const ROUNDS=[
+  {parent:'Coca-Cola Company', brands:[
+    {n:'Thums Up',o:true},{n:'Limca',o:true},{n:'Maaza',o:true},{n:'Sprite',o:true},
+    {n:'Kinley',o:true},{n:'Minute Maid',o:true},{n:'Campa Cola',o:false},{n:'Frooti',o:false}],
+   fact:'💥 Thums Up, Limca & Maaza — the "desi" drinks of your childhood — were sold to Coca-Cola in 1993. Campa is Reliance\'s relaunch, and Frooti is Parle Agro.'},
+  {parent:'Hindustan Unilever (HUL)', brands:[
+    {n:'Dove',o:true},{n:'Lifebuoy',o:true},{n:'Surf Excel',o:true},{n:'Lakmé',o:true},
+    {n:'Kissan',o:true},{n:'Kwality Wall\'s',o:true},{n:'Nirma',o:false},{n:'Ghadi',o:false}],
+   fact:'💥 One company owns your soap, shampoo, detergent, ketchup, lipstick AND ice cream. Nirma and Ghadi are the rare independents that fought the giant.'},
+  {parent:'Nestlé', brands:[
+    {n:'Maggi',o:true},{n:'Nescafé',o:true},{n:'KitKat',o:true},{n:'Cerelac',o:true},
+    {n:'Milkmaid',o:true},{n:'Munch',o:true},{n:'Parle-G',o:false},{n:'Amul',o:false}],
+   fact:'💥 Maggi to baby food — one Swiss giant. Meanwhile Amul is owned by ~36 lakh Indian farmers, and Parle-G is still a family-run Indian company. THAT is the difference Balance measures.'},
+  {parent:'Tata Group', brands:[
+    {n:'Tanishq',o:true},{n:'Zudio',o:true},{n:'BigBasket',o:true},{n:'Croma',o:true},
+    {n:'Air India',o:true},{n:'Starbucks India',o:true},{n:'Bata',o:false},{n:'Dabur',o:false}],
+   fact:'💥 Plot twist: Bata was NEVER Tata — it\'s a Czech-origin company founded in 1894. Meanwhile Tata quietly owns your jewellery, groceries, flights and coffee runs.'},
+];
+let r=0, score=0, totalQs=0, sel=new Set(), revealed=false;
+
+function start(){r=0;score=0;totalQs=0;
+  document.getElementById('intro').style.display='none';
+  document.getElementById('game').style.display='block';
+  showRound();}
+
+function showRound(){
+  sel=new Set();revealed=false;
+  const R=ROUNDS[r];
+  document.getElementById('rnum').textContent='ROUND '+(r+1)+' / '+ROUNDS.length;
+  document.getElementById('parent').textContent=R.parent;
+  document.getElementById('verdict').textContent='';
+  document.getElementById('fact').style.display='none';
+  document.getElementById('checkBtn').style.display='inline-block';
+  document.getElementById('nextBtn').style.display='none';
+  document.getElementById('scoreline').textContent='Score so far: '+score;
+  document.getElementById('grid').innerHTML=R.brands.map((b,i)=>
+    '<button class="chip" id="c'+i+'" onclick="toggle('+i+')">'+b.n+'</button>').join('');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function toggle(i){
+  if(revealed)return;
+  const el=document.getElementById('c'+i);
+  if(sel.has(i)){sel.delete(i);el.classList.remove('sel')}
+  else{sel.add(i);el.classList.add('sel')}
+}
+function check(){
+  if(revealed)return;
+  revealed=true;
+  const R=ROUNDS[r];let correct=0;
+  R.brands.forEach((b,i)=>{
+    const el=document.getElementById('c'+i);
+    const picked=sel.has(i);
+    if(b.o){el.classList.add('owned');if(picked){el.classList.add('was-sel');correct++}}
+    else{if(picked){el.classList.add('wrong')}else{el.classList.add('notowned');correct++}}
+  });
+  score+=correct;totalQs+=R.brands.length;
+  document.getElementById('verdict').innerHTML='<b>'+correct+'/'+R.brands.length+'</b> correct this round';
+  const f=document.getElementById('fact');f.innerHTML=R.fact;f.style.display='block';
+  document.getElementById('checkBtn').style.display='none';
+  document.getElementById('nextBtn').style.display='inline-block';
+  document.getElementById('nextBtn').textContent=(r<ROUNDS.length-1)?'Next Round →':'See My Result →';
+}
+function next(){
+  r++;
+  if(r<ROUNDS.length){showRound()}
+  else{
+    document.getElementById('game').style.display='none';
+    document.getElementById('res').style.display='block';
+    document.getElementById('finalScore').textContent=score;
+    document.getElementById('finalOutof').textContent='out of '+totalQs+' brand calls';
+    const pct=score/totalQs;
+    document.getElementById('shockline').textContent=
+      pct>=.85?'Sharp eyes! You see through the shelf illusion — most people can\'t.':
+      pct>=.6?'Not bad — but the giants still fooled you a few times. Imagine everyone else.':
+      'The giants fooled you. That\'s exactly the point — "choice" is an illusion.';
+    awardPoints();
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+}
+function awardPoints(){
+  try{
+    const KEY='balance_v0';
+    const st=JSON.parse(localStorage.getItem(KEY))||{log:[],streak:0,lastDay:null};
+    if(!st.log.some(x=>x.id==='monopoly')){
+      const today=new Date().toDateString();
+      if(st.lastDay!==today){const y=new Date(Date.now()-864e5).toDateString();st.streak=(st.lastDay===y)?st.streak+1:1;st.lastDay=today;}
+      st.log.push({p:'eco',id:'monopoly',cat:'self',pt:10,t:Date.now()});
+      localStorage.setItem(KEY,JSON.stringify(st));
+    }
+  }catch(e){}
+}
+function shareWA(){
+  const txt='I scored '+score+'/'+totalQs+' on the Monopoly Quiz 🎮 — bet you can\'t tell which brands belong to which giant. Try: '+SITE+'monopoly.html';
+  window.open('https://wa.me/?text='+encodeURIComponent(txt),'_blank');
+}
+</script>
+
+</body>
+</html>
