@@ -26,6 +26,15 @@ A static website (concept demo). No build step, no dependencies, all visuals are
 - `economic.html` — company vs. alternative comparisons with demo Balance Scores
 - `social.html` — living culture vs. empty ritualism
 - `actions.html` — gamified action tracker (points, levels, badges, streaks, balance triangle) — stores data in the browser's localStorage only
+- `quiz.html` — "What's Your Balance Score?" — 9-question quiz with archetypes + shareable result card (canvas-generated PNG, WhatsApp share)
+- `monopoly.html` — brand-ownership guessing game across 4 rounds (Coca-Cola, HUL, Nestlé, Tata)
+- `daily.html` — "Today's Imbalance" — one rotating daily fact with read-streak
+
+All points flow into one shared localStorage store (`balance_v0`).
+
+## V1 (needs backend — Supabase planned)
+
+Versus voting with community %, city leaderboards, proof upload for verifiable actions, real community counters.
 
 ## Run Locally
 
