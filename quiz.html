@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What's Your Balance Score? Free 2-Minute Quiz | Balance Platform</title>
+<meta name="description" content="Take the free Balance Quiz: 9 questions on your political, economic and social habits. Get your score out of 90, your archetype, and a shareable result card. No signup needed.">
+<link rel="canonical" href="https://clearkart1-a11y.github.io/balance/quiz.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Balance">
+<meta property="og:title" content="What's YOUR Balance Score? — free 2-minute quiz">
+<meta property="og:description" content="9 brutally honest questions. Find your archetype: Sleeping Giant, Observer, Chooser or Balancer.">
+<meta property="og:url" content="https://clearkart1-a11y.github.io/balance/quiz.html">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root{--ink:#1a1a2e;--paper:#faf8f4;--muted:#6b6b7b;--card:#fff;
+    --pol:#2c5f8a;--eco:#0f6e5c;--soc:#c8552c;--gold:#d9a324}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6}
+  .wrap{max-width:640px;margin:0 auto;padding:0 24px}
+  header{padding:16px 0;position:sticky;top:0;background:rgba(250,248,244,.95);backdrop-filter:blur(6px);z-index:10;border-bottom:1px solid #e5e0d5}
+  header .inner{max-width:1040px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center}
+  .logo{font-weight:800;font-size:1.2rem;letter-spacing:1px;text-decoration:none;color:var(--ink)}
+  .logo .dot{color:var(--soc)}
+  nav a{color:var(--muted);text-decoration:none;margin-left:16px;font-size:.85rem}
+  nav a.active{color:var(--gold);font-weight:700}
+  @media(max-width:640px){nav a{margin-left:10px;font-size:.78rem}}
+
+  .stage{padding:48px 0 64px;text-align:center}
+  .kicker{text-transform:uppercase;letter-spacing:2px;font-size:.72rem;color:var(--soc);font-weight:800;margin-bottom:10px}
+  h1{font-size:clamp(1.7rem,5vw,2.4rem);line-height:1.2;margin-bottom:12px}
+  .lead{color:var(--muted);max-width:440px;margin:0 auto 28px;font-size:.98rem}
+  .btn{display:inline-block;background:var(--eco);color:#fff;padding:14px 36px;border-radius:10px;text-decoration:none;font-weight:700;font-size:1rem;border:none;cursor:pointer}
+  .btn:hover{opacity:.9}
+  .btn.dark{background:var(--ink)}
+  .btn.ghost{background:transparent;color:var(--eco);border:1.5px solid var(--eco)}
+
+  .qcard{background:var(--card);border:1px solid #e9e4d8;border-radius:16px;padding:32px 28px;text-align:left;box-shadow:0 4px 16px rgba(26,26,46,.06)}
+  .qnum{font-size:.75rem;letter-spacing:1.5px;color:var(--muted);font-weight:700;margin-bottom:6px}
+  .qnum .pill{display:inline-block;color:#fff;border-radius:6px;padding:1px 10px;margin-left:8px;font-size:.68rem}
+  .pill.pol{background:var(--pol)} .pill.eco{background:var(--eco)} .pill.soc{background:var(--soc)}
+  .qcard h2{font-size:1.25rem;margin-bottom:18px;line-height:1.35}
+  .opt{display:block;width:100%;text-align:left;background:#f7f4ec;border:2px solid #e9e4d8;border-radius:12px;padding:14px 18px;margin-bottom:12px;font-size:.95rem;cursor:pointer;transition:all .15s}
+  .opt:hover{border-color:var(--eco);background:#fff}
+  .pbar{height:8px;background:#eee7d8;border-radius:6px;overflow:hidden;margin-bottom:28px}
+  .pbar i{display:block;height:100%;background:linear-gradient(90deg,var(--eco),var(--gold));transition:width .3s}
+
+  .result .scorebig{font-size:4rem;font-weight:800;line-height:1}
+  .result .outof{color:var(--muted);font-size:.9rem;margin-bottom:8px}
+  .arch{font-size:1.5rem;font-weight:800;margin:10px 0 4px}
+  .archsub{color:var(--muted);max-width:420px;margin:0 auto 20px;font-size:.92rem}
+  .pillbars{max-width:380px;margin:0 auto 24px;text-align:left}
+  .pillbars .row{margin-bottom:10px}
+  .pillbars label{font-size:.78rem;font-weight:700;display:flex;justify-content:space-between}
+  .pillbars .bar{height:9px;background:#eee7d8;border-radius:6px;overflow:hidden}
+  .pillbars .bar i{display:block;height:100%;border-radius:6px}
+  .weakest{background:#fdf3e7;border:1px solid #f0d9b8;border-radius:12px;padding:14px 18px;font-size:.88rem;color:#8a6420;max-width:440px;margin:0 auto 26px;text-align:left}
+  canvas{display:none}
+  .sharebtns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:26px}
+  .next-links{font-size:.9rem;color:var(--muted)}
+  .next-links a{color:var(--eco);font-weight:700;text-decoration:none}
+  footer{padding:32px 0 48px;text-align:center;color:var(--muted);font-size:.82rem;border-top:1px solid #e5e0d5}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <a class="logo" href="index.html">BALANCE<span class="dot">.</span></a>
+    <nav>
+      <a href="political.html">Political</a>
+      <a href="economic.html">Economic</a>
+      <a href="social.html">Social</a>
+      <a href="actions.html">Act</a>
+      <a href="quiz.html" class="active">Quiz</a>
+      <a href="daily.html">Daily</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <!-- INTRO -->
+  <div class="stage" id="intro">
+    <div class="kicker">The Balance Quiz</div>
+    <h1>How balanced is your life, really?</h1>
+    <p class="lead">9 questions · 2 minutes · brutally honest. Get your personal Balance Score across political, economic & social life.</p>
+    <button class="btn" onclick="startQuiz()">Start the Quiz →</button>
+  </div>
+
+  <!-- QUESTION -->
+  <div class="stage" id="qstage" style="display:none">
+    <div class="pbar"><i id="pfill" style="width:0%"></i></div>
+    <div class="qcard">
+      <div class="qnum" id="qnum"></div>
+      <h2 id="qtext"></h2>
+      <div id="opts"></div>
+    </div>
+  </div>
+
+  <!-- RESULT -->
+  <div class="stage result" id="rstage" style="display:none">
+    <div class="kicker">Your Balance Score</div>
+    <div class="scorebig" id="rscore">0</div>
+    <div class="outof">out of 90</div>
+    <div class="arch" id="rarch"></div>
+    <p class="archsub" id="rarchsub"></p>
+    <div class="pillbars">
+      <div class="row"><label><span style="color:var(--pol)">🏛️ Political</span><b id="vPol">0/30</b></label><div class="bar"><i id="bPol" style="background:var(--pol);width:0%"></i></div></div>
+      <div class="row"><label><span style="color:var(--eco)">📊 Economic</span><b id="vEco">0/30</b></label><div class="bar"><i id="bEco" style="background:var(--eco);width:0%"></i></div></div>
+      <div class="row"><label><span style="color:var(--soc)">🕊️ Social</span><b id="vSoc">0/30</b></label><div class="bar"><i id="bSoc" style="background:var(--soc);width:0%"></i></div></div>
+    </div>
+    <div class="weakest" id="rweak"></div>
+    <div class="sharebtns">
+      <button class="btn" onclick="shareWA()">📲 Share on WhatsApp</button>
+      <button class="btn dark" onclick="downloadCard()">⬇️ Download Card</button>
+      <button class="btn ghost" onclick="location.reload()">↻ Retake</button>
+    </div>
+    <p class="next-links">Next: <a href="monopoly.html">play the Monopoly Quiz 🎮</a> · <a href="daily.html">today's imbalance 📅</a> · <a href="actions.html">take action 🎯</a></p>
+  </div>
+</div>
+
+<canvas id="cardCanvas" width="1080" height="1080"></canvas>
+
+<footer>
+  <p><strong>BALANCE.</strong> — An awareness platform for world equilibrium · Concept demo · 2026</p>
+</footer>
+
+<script>
+const SITE='https://clearkart1-a11y.github.io/balance/';
+const QS=[
+  // ECONOMIC
+  {p:'eco', q:'Your daily chai/coffee usually comes from…', o:[
+    ['A big chain — convenient hai',0],
+    ['Jahan mood ho — never thought about it',5],
+    ['A local café, thela or homemade',10]]},
+  {p:'eco', q:'Last month, how often did you pick a local shop over a big online giant?', o:[
+    ['Almost never — sab online aata hai',0],
+    ['Sometimes, if convenient',5],
+    ['Often — I go local by choice',10]]},
+  {p:'eco', q:'Do you know who actually owns the brands you buy most?', o:[
+    ['No idea',0],
+    ['Some of them',5],
+    ['Mostly yes — I check',10]]},
+  // POLITICAL
+  {p:'pol', q:'Can you name your MLA and MP?', o:[
+    ['Honestly, no',0],
+    ['One of them',5],
+    ['Both — and what they\'ve done',10]]},
+  {p:'pol', q:'Have you ever filed a civic complaint or RTI?', o:[
+    ['Never',0],
+    ['Thought about it, never did',5],
+    ['Yes, I have',10]]},
+  {p:'pol', q:'How do you decide your vote?', o:[
+    ['Party symbol — always the same',0],
+    ['Family / community tradition',5],
+    ['The candidate\'s actual record',10]]},
+  // SOCIAL
+  {p:'soc', q:'Festival & wedding spending in your family is decided by…', o:[
+    ['What society expects — log kya kahenge',0],
+    ['Some show, some sense',5],
+    ['Budget and meaning — dikhava nahi',10]]},
+  {p:'soc', q:'Have you ever honestly questioned a custom you follow?', o:[
+    ['Never — customs are customs',0],
+    ['I think about it sometimes',5],
+    ['Yes — and changed what didn\'t make sense',10]]},
+  {p:'soc', q:'In the last 6 months, time given to your community?', o:[
+    ['None',0],
+    ['Once or twice',5],
+    ['Regularly',10]]},
+];
+const ARCHS=[
+  {min:0,  name:'😴 The Sleeping Giant',   sub:'Huge potential, zero awareness — the system counts on you staying asleep. Time to wake up.'},
+  {min:30, name:'👀 The Awakened Observer', sub:'You see the imbalance now. Seeing is step one — choosing is step two.'},
+  {min:56, name:'✋ The Conscious Chooser', sub:'Your choices already push the scale. Now make them consistent.'},
+  {min:76, name:'⚖️ The Balancer',         sub:'You live the equilibrium. The platform was built for people like you to lead.'},
+];
+const PNAME={pol:'Political',eco:'Economic',soc:'Social'};
+const PTIP={
+  pol:'🏛️ Your weakest link: <b>Political</b>. Start small — learn your MLA\'s name today. It takes 2 minutes.',
+  eco:'📊 Your weakest link: <b>Economic</b>. This week, make one swap — one local purchase instead of a chain.',
+  soc:'🕊️ Your weakest link: <b>Social</b>. Ask one honest question about one custom this week. That\'s all.'};
+
+let idx=0, scores={pol:0,eco:0,soc:0}, result=null;
+
+function startQuiz(){ idx=0; scores={pol:0,eco:0,soc:0};
+  document.getElementById('intro').style.display='none';
+  document.getElementById('qstage').style.display='block';
+  showQ(); }
+
+function showQ(){
+  const q=QS[idx];
+  document.getElementById('pfill').style.width=(idx/QS.length*100)+'%';
+  document.getElementById('qnum').innerHTML='QUESTION '+(idx+1)+' / '+QS.length+'<span class="pill '+q.p+'">'+PNAME[q.p].toUpperCase()+'</span>';
+  document.getElementById('qtext').textContent=q.q;
+  document.getElementById('opts').innerHTML=q.o.map((o,i)=>'<button class="opt" onclick="pick('+i+')">'+o[0]+'</button>').join('');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function pick(i){
+  const q=QS[idx];
+  scores[q.p]+=q.o[i][1];
+  idx++;
+  if(idx<QS.length){showQ()}else{finish()}
+}
+function finish(){
+  const tot=scores.pol+scores.eco+scores.soc;
+  const arch=[...ARCHS].reverse().find(a=>tot>=a.min);
+  const weakest=['pol','eco','soc'].sort((a,b)=>scores[a]-scores[b])[0];
+  result={tot,arch,weakest};
+  document.getElementById('qstage').style.display='none';
+  document.getElementById('rstage').style.display='block';
+  document.getElementById('rscore').textContent=tot;
+  document.getElementById('rarch').textContent=arch.name;
+  document.getElementById('rarchsub').textContent=arch.sub;
+  [['pol','vPol','bPol'],['eco','vEco','bEco'],['soc','vSoc','bSoc']].forEach(([p,v,b])=>{
+    document.getElementById(v).textContent=scores[p]+'/30';
+    document.getElementById(b).style.width=(scores[p]/30*100)+'%';
+  });
+  document.getElementById('rweak').innerHTML=PTIP[weakest];
+  drawCard(tot,arch);
+  awardPoints(weakest);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+// one-time +10 into the shared Balance points (same store as actions.html)
+function awardPoints(weakest){
+  try{
+    const KEY='balance_v0';
+    const st=JSON.parse(localStorage.getItem(KEY))||{log:[],streak:0,lastDay:null};
+    if(!st.log.some(x=>x.id==='quiz')){
+      const today=new Date().toDateString();
+      if(st.lastDay!==today){const y=new Date(Date.now()-864e5).toDateString();st.streak=(st.lastDay===y)?st.streak+1:1;st.lastDay=today;}
+      st.log.push({p:weakest,id:'quiz',cat:'self',pt:10,t:Date.now()});
+      localStorage.setItem(KEY,JSON.stringify(st));
+    }
+  }catch(e){}
+}
+// ---- share card ----
+function drawCard(tot,arch){
+  const c=document.getElementById('cardCanvas'),x=c.getContext('2d');
+  const g=x.createLinearGradient(0,0,1080,1080);
+  g.addColorStop(0,'#1a1a2e');g.addColorStop(1,'#3a3a5e');
+  x.fillStyle=g;x.fillRect(0,0,1080,1080);
+  x.fillStyle='rgba(255,215,107,.12)';x.beginPath();x.arc(900,150,300,0,7);x.fill();
+  x.textAlign='center';
+  x.fillStyle='#ffd76b';x.font='700 40px Arial';x.fillText('MY BALANCE SCORE',540,180);
+  x.fillStyle='#fff';x.font='800 300px Arial';x.fillText(tot,540,520);
+  x.fillStyle='rgba(255,255,255,.55)';x.font='400 44px Arial';x.fillText('out of 90',540,590);
+  x.fillStyle='#fff';x.font='800 64px Arial';x.fillText(arch.name,540,720);
+  // scale icon
+  x.strokeStyle='#ffd76b';x.lineWidth=8;x.beginPath();
+  x.moveTo(540,790);x.lineTo(540,880);x.moveTo(440,810);x.lineTo(640,810);x.stroke();
+  x.beginPath();x.arc(440,850,34,3.14,0);x.arc(640,850,34,3.14,0);x.stroke();
+  x.fillStyle='rgba(255,255,255,.8)';x.font='400 36px Arial';
+  x.fillText('How balanced are YOU? Take the quiz:',540,970);
+  x.fillStyle='#ffd76b';x.font='700 38px Arial';x.fillText(SITE.replace('https://',''),540,1020);
+}
+function cardBlob(cb){document.getElementById('cardCanvas').toBlob(cb,'image/png')}
+function shareWA(){
+  const txt='My Balance Score: '+result.tot+'/90 — '+result.arch.name+' ⚖️\nHow balanced are you? Take the 2-minute quiz: '+SITE+'quiz.html';
+  cardBlob(async blob=>{
+    const file=new File([blob],'balance-score.png',{type:'image/png'});
+    if(navigator.canShare&&navigator.canShare({files:[file]})){
+      try{await navigator.share({files:[file],text:txt});return}catch(e){}
+    }
+    window.open('https://wa.me/?text='+encodeURIComponent(txt),'_blank');
+  });
+}
+function downloadCard(){
+  cardBlob(blob=>{
+    const a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);a.download='my-balance-score.png';a.click();
+  });
+}
+</script>
+
+</body>
+</html>
