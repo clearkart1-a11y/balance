@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://clearkart1-a11y.github.io/balance/sitemap.xml
