@@ -3,7 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Take Action — Balance Platform</title>
+<title>Take Action — Civic & Conscious Living Tracker (RTI, Local Swaps, Community) | Balance</title>
+<meta name="description" content="Turn awareness into action: file RTI, review local businesses, verify voter registration, make conscious swaps. Track points, levels, badges and streaks on your personal Balance Triangle.">
+<link rel="canonical" href="https://clearkart1-a11y.github.io/balance/actions.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Balance">
+<meta property="og:title" content="Take Action — earn Balance Points for real-world civic & conscious actions">
+<meta property="og:description" content="22 actions across political, economic & social balance. Points, badges, streaks — awareness that acts.">
+<meta property="og:url" content="https://clearkart1-a11y.github.io/balance/actions.html">
+<meta name="twitter:card" content="summary">
 <style>
   :root{--ink:#1a1a2e;--paper:#faf8f4;--muted:#6b6b7b;--card:#fff;
     --pol:#2c5f8a;--eco:#0f6e5c;--soc:#c8552c;--gold:#d9a324}
@@ -44,23 +52,31 @@
   .reset{margin-top:18px;background:none;border:1px solid #ddd5c4;color:var(--muted);border-radius:8px;padding:6px 14px;font-size:.75rem;cursor:pointer}
   .reset:hover{color:var(--soc);border-color:var(--soc)}
 
-  .pillar-block{background:var(--card);border:1px solid #e9e4d8;border-radius:16px;margin-bottom:22px;overflow:hidden}
-  .pillar-block .head{padding:16px 22px;color:#fff;display:flex;justify-content:space-between;align-items:center}
-  .pillar-block.pol .head{background:linear-gradient(135deg,var(--pol),#4a86b8)}
-  .pillar-block.eco .head{background:linear-gradient(135deg,var(--eco),#2ba184)}
-  .pillar-block.soc .head{background:linear-gradient(135deg,var(--soc),#e8845c)}
-  .pillar-block .head h2{font-size:1.05rem}
-  .pillar-block .head .pts{font-size:.8rem;opacity:.9}
-  .action{display:flex;align-items:center;gap:14px;padding:14px 22px;border-bottom:1px dashed #eee7d8}
+  .cat-block{background:var(--card);border:1px solid #e9e4d8;border-radius:16px;margin-bottom:26px;overflow:hidden}
+  .cat-block .head{padding:18px 22px;color:#fff}
+  .cat-block.act .head{background:linear-gradient(135deg,#1a1a2e,#3a3a5e)}
+  .cat-block.self .head{background:linear-gradient(135deg,#6b5a1e,var(--gold))}
+  .cat-block .head h2{font-size:1.1rem}
+  .cat-block .head p{font-size:.8rem;opacity:.85}
+
+  .thead{display:grid;grid-template-columns:70px 1fr 56px 110px;gap:10px;padding:10px 22px;background:#f4f1e9;font-size:.7rem;letter-spacing:1px;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .action{display:grid;grid-template-columns:70px 1fr 56px 110px;gap:10px;align-items:center;padding:13px 22px;border-bottom:1px dashed #eee7d8}
   .action:last-child{border-bottom:none}
-  .action .info{flex:1}
+  @media(max-width:640px){
+    .thead{display:none}
+    .action{grid-template-columns:1fr;gap:8px}
+  }
+  .chip{font-size:.68rem;font-weight:800;letter-spacing:.5px;color:#fff;border-radius:6px;padding:3px 0;text-align:center;width:56px}
+  .chip.pol{background:var(--pol)} .chip.eco{background:var(--eco)} .chip.soc{background:var(--soc)}
   .action .info b{display:block;font-size:.92rem}
   .action .info span{font-size:.8rem;color:var(--muted)}
-  .action .pt{font-size:.75rem;font-weight:700;color:var(--gold);white-space:nowrap}
-  .action button{background:var(--ink);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:.8rem;font-weight:600;cursor:pointer;white-space:nowrap}
+  .action .info .proof{display:block;font-size:.7rem;color:var(--gold);font-weight:600;margin-top:2px}
+  .action .pt{font-size:.78rem;font-weight:700;color:var(--gold);white-space:nowrap}
+  .action button{background:var(--ink);color:#fff;border:none;border-radius:8px;padding:8px 10px;font-size:.78rem;font-weight:600;cursor:pointer;white-space:nowrap;width:100%}
   .action button:hover{opacity:.85}
   .action button.done{background:#d9d2c0;color:#6b6b7b;cursor:default}
   .action button.repeat{background:var(--eco)}
+  @media(max-width:640px){.action button{width:auto;justify-self:start;padding:8px 18px}}
 
   .badges{background:var(--card);border:1px solid #e9e4d8;border-radius:16px;padding:24px;margin-bottom:48px}
   .badges h2{font-size:1.05rem;margin-bottom:16px}
@@ -85,7 +101,9 @@
       <a href="political.html">Political</a>
       <a href="economic.html">Economic</a>
       <a href="social.html">Social</a>
-      <a href="actions.html" class="active">Take Action</a>
+      <a href="actions.html" class="active">Act</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="daily.html">Daily</a>
     </nav>
   </div>
 </header>
@@ -93,7 +111,7 @@
 <div class="pagehero">
   <div class="demo-tag">CONCEPT DEMO — DATA SAVED ONLY ON YOUR DEVICE</div>
   <h1>🎯 Take Action</h1>
-  <p>Awareness becomes balance only when you act. Log actions, grow your Balance Score, and build your triangle.</p>
+  <p>Awareness becomes balance only when you act. Do real-world actions, declare your personal shifts, and build your triangle.</p>
 </div>
 
 <div class="wrap">
@@ -125,19 +143,27 @@
       <button class="reset" onclick="resetAll()">Reset demo data</button>
     </aside>
 
-    <!-- ACTIONS -->
+    <!-- TASK TABLES -->
     <div>
-      <div class="pillar-block eco">
-        <div class="head"><h2>📊 Economic Actions</h2><span class="pts" id="ptsEco">0 pts</span></div>
-        <div id="listEco"></div>
+
+      <!-- TABLE 1: ACTION TASKS -->
+      <div class="cat-block act">
+        <div class="head">
+          <h2>🎬 Action Tasks — Verifiable</h2>
+          <p>Real-world actions with proof (links, receipts, photos) — higher points</p>
+        </div>
+        <div class="thead"><span>Balance</span><span>Task</span><span>Pts</span><span></span></div>
+        <div id="listAct"></div>
       </div>
-      <div class="pillar-block pol">
-        <div class="head"><h2>🏛️ Political Actions</h2><span class="pts" id="ptsPol">0 pts</span></div>
-        <div id="listPol"></div>
-      </div>
-      <div class="pillar-block soc">
-        <div class="head"><h2>🕊️ Social Actions</h2><span class="pts" id="ptsSoc">0 pts</span></div>
-        <div id="listSoc"></div>
+
+      <!-- TABLE 2: SELF-DECLARATION TASKS -->
+      <div class="cat-block self">
+        <div class="head">
+          <h2>🙋 Self-Declaration Tasks</h2>
+          <p>Personal shifts on the honour system — lower points, still count</p>
+        </div>
+        <div class="thead"><span>Balance</span><span>Task</span><span>Pts</span><span></span></div>
+        <div id="listSelf"></div>
       </div>
 
       <div class="badges">
@@ -157,26 +183,44 @@
 
 <script>
 // ---------- DATA ----------
-const ACTIONS = {
-  eco: [
-    {id:'swap',      b:'Made a swap',                 s:'Chose a local/alternative business over a dominant chain', pt:10, repeat:true},
-    {id:'discover',  b:'Discovered a local business',  s:'Found a local shop, café, or maker worth supporting',      pt:5,  repeat:true},
-    {id:'audit',     b:'Did my monthly spend audit',   s:'Checked what % of my spending stayed local this month',    pt:20, repeat:true},
-    {id:'pledge_eco',b:'Took the Local Pledge',        s:'Committed to 5 local purchases this month',                pt:15, repeat:false},
-  ],
-  pol: [
-    {id:'knowrep',   b:'Know Your Representative',     s:'Learned my representative\'s name, record & attendance',   pt:15, repeat:false},
-    {id:'indprofile',b:'Read an independent candidate\'s profile', s:'Judged a person, not a party symbol',          pt:10, repeat:true},
-    {id:'issue',     b:'Raised a local issue',         s:'Reported a civic problem (road, water, safety) officially',pt:20, repeat:true},
-    {id:'voterreg',  b:'Verified my voter registration', s:'Made sure my vote counts',                               pt:15, repeat:false},
-  ],
-  soc: [
-    {id:'ritaudit',  b:'Did a ritual self-audit',      s:'Asked honestly: does this practice uplift or burden?',     pt:10, repeat:true},
-    {id:'conscious', b:'Conscious celebration',        s:'Celebrated within budget — meaning over spectacle',        pt:15, repeat:true},
-    {id:'service',   b:'Community service',            s:'Gave an hour to my community',                             pt:15, repeat:true},
-    {id:'crossevent',b:'Attended a cross-community event', s:'Met people beyond my own circle',                      pt:10, repeat:true},
-  ]
-};
+// cat: 'act' = real-world action | 'self' = self-declaration
+// p: pillar (pol/eco/soc), pt: points, repeat: can be done multiple times
+const TASKS = [
+  // ===== ACTION TASKS (verifiable — proof required in V1) =====
+  // Economic
+  {cat:'act', p:'eco', id:'review',    b:'Wrote a Google review for a local business', s:'5-star visibility for a deserving local shop', pt:15, repeat:true,  vf:'review link'},
+  {cat:'act', p:'eco', id:'swap',      b:'Made a swap',                        s:'Chose a local/alternative business over a dominant chain', pt:10, repeat:true, vf:'receipt / photo'},
+  {cat:'act', p:'eco', id:'direct',    b:'Bought directly from a maker',       s:'Farmer, artisan, tailor — no middle platform',        pt:12, repeat:true,  vf:'receipt / photo'},
+  {cat:'act', p:'eco', id:'donate',    b:'Donated to a local cause',           s:'School, library, shelter — money where community is', pt:15, repeat:true,  vf:'receipt'},
+  {cat:'act', p:'eco', id:'listbiz',   b:'Listed a local business on maps',    s:'Put an unlisted shop on Google Maps — made it findable', pt:20, repeat:true, vf:'maps link'},
+  // Political
+  {cat:'act', p:'pol', id:'rti',       b:'Filed an RTI',                       s:'Asked the system a question it must answer',          pt:30, repeat:true,  vf:'RTI receipt no.'},
+  {cat:'act', p:'pol', id:'issue',     b:'Raised a local civic issue',         s:'Road, water, safety — via official portal/app',       pt:25, repeat:true,  vf:'complaint ID'},
+  {cat:'act', p:'pol', id:'rootlocal', b:'Rooted for a local candidate',       s:'Volunteered for or shared an independent/local candidate\'s profile', pt:15, repeat:true, vf:'post link'},
+  {cat:'act', p:'pol', id:'meeting',   b:'Attended a public meeting',          s:'Gram sabha, ward meeting, or public hearing',         pt:25, repeat:true,  vf:'geotag photo'},
+  {cat:'act', p:'pol', id:'voterreg',  b:'Verified my voter registration',     s:'Made sure my vote counts',                            pt:15, repeat:false, vf:'screenshot'},
+  {cat:'act', p:'pol', id:'petition',  b:'Signed/started an official petition', s:'On a government or municipal petition portal',       pt:12, repeat:true,  vf:'petition link'},
+  // Social
+  {cat:'act', p:'soc', id:'story',     b:'Shared a story publicly',            s:'Your balance journey or a community story — inspire others', pt:12, repeat:true, vf:'post link'},
+  {cat:'act', p:'soc', id:'service',   b:'Volunteered with an organisation',   s:'NGO, school, old-age home — registered service',      pt:20, repeat:true,  vf:'certificate / photo'},
+  {cat:'act', p:'soc', id:'crossevent',b:'Attended a cross-community event',   s:'Met people beyond my own circle',                     pt:12, repeat:true,  vf:'geotag photo'},
+  {cat:'act', p:'soc', id:'drive',     b:'Joined a community drive',           s:'Cleanup, donation camp, blood drive, tree planting',  pt:18, repeat:true,  vf:'photo'},
+  {cat:'act', p:'soc', id:'organize',  b:'Organised a community event',        s:'You brought people together — the biggest social action', pt:30, repeat:true, vf:'photos / posts'},
+
+  // ===== SELF-DECLARATION TASKS (honour system — lower points) =====
+  // Economic
+  {cat:'self', p:'eco', id:'audit',     b:'Did my monthly spend audit',        s:'Checked what % of my spending stayed local this month', pt:8, repeat:true},
+  {cat:'self', p:'eco', id:'pledge_eco',b:'Took the Local Pledge',             s:'Committed to 5 local purchases this month',           pt:5,  repeat:false},
+  {cat:'self', p:'eco', id:'skipimpulse',b:'Skipped an impulse buy',           s:'Paused before a fast-fashion / quick-commerce purchase', pt:3, repeat:true},
+  // Political
+  {cat:'self', p:'pol', id:'knowrep',   b:'Know Your Representative',          s:'Learned my representative\'s name, record & attendance', pt:8, repeat:false},
+  {cat:'self', p:'pol', id:'indprofile',b:'Read an independent candidate\'s profile', s:'Judged a person, not a party symbol',          pt:5,  repeat:true},
+  {cat:'self', p:'pol', id:'bothsides', b:'Read both sides of an issue',       s:'Went past my own echo chamber on a local issue',      pt:5,  repeat:true},
+  // Social
+  {cat:'self', p:'soc', id:'ritaudit',  b:'Did a ritual self-audit',           s:'Asked honestly: does this practice uplift or burden?', pt:5,  repeat:true},
+  {cat:'self', p:'soc', id:'conscious', b:'Conscious celebration',             s:'Celebrated within budget — meaning over spectacle',   pt:8,  repeat:true},
+  {cat:'self', p:'soc', id:'famtalk',   b:'Had the family conversation',       s:'Talked openly about a custom that burdens us',        pt:5,  repeat:true},
+];
 const LEVELS = [
   {min:0,   name:'🔍 Observer',  sub:'Your journey begins'},
   {min:50,  name:'✋ Chooser',   sub:'You choose with awareness'},
@@ -188,10 +232,14 @@ const BADGES = [
   {id:'localhero',em:'🏪', name:'Local Hero',        test:st=>count(st,'eco')>=5},
   {id:'informed', em:'🗳️', name:'Informed Voter',    test:st=>count(st,'pol')>=5},
   {id:'mindful',  em:'🪷', name:'Mindful Celebrant', test:st=>count(st,'soc')>=5},
+  {id:'rtiwarrior',em:'📜', name:'RTI Warrior',      test:st=>st.log.filter(x=>x.id==='rti').length>=1},
+  {id:'storyteller',em:'📣', name:'Storyteller',     test:st=>st.log.filter(x=>x.id==='story').length>=3},
+  {id:'doer',     em:'🎬', name:'Doer (10 actions)', test:st=>st.log.filter(x=>x.cat==='act').length>=10},
   {id:'triangle', em:'🔺', name:'Perfect Triangle',  test:st=>['pol','eco','soc'].every(p=>pts(st,p)>=50)},
   {id:'streak7',  em:'🔥', name:'7-Day Streak',      test:st=>st.streak>=7},
 ];
 const KEY='balance_v0';
+const PILLAR_NAME={pol:'POL',eco:'ECO',soc:'SOC'};
 
 // ---------- STATE ----------
 function load(){ try{return JSON.parse(localStorage.getItem(KEY))||{log:[],streak:0,lastDay:null}}catch(e){return{log:[],streak:0,lastDay:null}} }
@@ -202,9 +250,9 @@ function total(st){ return st.log.reduce((a,x)=>a+x.pt,0) }
 function doneOnce(st,id){ return st.log.some(x=>x.id===id) }
 
 // ---------- ACTIONS ----------
-function logAction(p,id){
+function logAction(id){
   const st=load();
-  const a=ACTIONS[p].find(x=>x.id===id);
+  const a=TASKS.find(x=>x.id===id);
   if(!a.repeat && doneOnce(st,id)) return;
   const today=new Date().toDateString();
   if(st.lastDay!==today){
@@ -213,7 +261,7 @@ function logAction(p,id){
     st.lastDay=today;
   }
   const before=BADGES.filter(b=>b.test(st)).length;
-  st.log.push({p,id,pt:a.pt,t:Date.now()});
+  st.log.push({p:a.p,id:a.id,cat:a.cat,pt:a.pt,t:Date.now()});
   save(st);
   render();
   const after=BADGES.filter(b=>b.test(st)).length;
@@ -229,6 +277,17 @@ function toast(msg){
 }
 
 // ---------- RENDER ----------
+function rowHtml(st,a){
+  const n=st.log.filter(x=>x.id===a.id).length;
+  const once=!a.repeat&&n>0;
+  const btn=once?'<button class="done">Done ✓</button>'
+    :'<button class="'+(n>0?'repeat':'')+'" onclick="logAction(\''+a.id+'\')">'+(n>0?'Again ('+n+'×)':'I did this')+'</button>';
+  const proof=a.vf?'<span class="proof">🔗 Proof (V1): '+a.vf+'</span>':'';
+  return '<div class="action">'
+    +'<span class="chip '+a.p+'">'+PILLAR_NAME[a.p]+'</span>'
+    +'<div class="info"><b>'+a.b+'</b><span>'+a.s+'</span>'+proof+'</div>'
+    +'<span class="pt">+'+a.pt+'</span>'+btn+'</div>';
+}
 function render(){
   const st=load(), tot=total(st);
   document.getElementById('totalScore').textContent=tot;
@@ -241,27 +300,20 @@ function render(){
   const base=next?LEVELS[LEVELS.indexOf(next)-1].min:lvl.min;
   document.getElementById('lvlFill').style.width=next?Math.min(100,(tot-base)/(next.min-base)*100)+'%':'100%';
 
-  // subscores + triangle (cap display at 100)
+  // subscores + triangle (display capped at 100)
   const sp=Math.min(100,pts(st,'pol')), se=Math.min(100,pts(st,'eco')), ss=Math.min(100,pts(st,'soc'));
   document.getElementById('sPol').textContent=pts(st,'pol');
   document.getElementById('sEco').textContent=pts(st,'eco');
   document.getElementById('sSoc').textContent=pts(st,'soc');
-  // triangle vertices: center (100,111.7); pol top (100,15), eco left (15,160), soc right (185,160)
   const c={x:100,y:111.7};
   const v=(vx,vy,f)=>{const m=.08+.92*(f/100);return (c.x+(vx-c.x)*m)+','+(c.y+(vy-c.y)*m)};
   document.getElementById('triFill').setAttribute('points',v(100,15,sp)+' '+v(15,160,se)+' '+v(185,160,ss));
 
-  // action lists
-  [['eco','listEco','ptsEco'],['pol','listPol','ptsPol'],['soc','listSoc','ptsSoc']].forEach(([p,listId,ptsId])=>{
-    document.getElementById(ptsId).textContent=pts(st,p)+' pts';
-    document.getElementById(listId).innerHTML=ACTIONS[p].map(a=>{
-      const n=st.log.filter(x=>x.id===a.id).length;
-      const once=!a.repeat&&n>0;
-      const btn=once?'<button class="done">Done ✓</button>'
-        :'<button class="'+(n>0?'repeat':'')+'" onclick="logAction(\''+p+'\',\''+a.id+'\')">'+(n>0?'Again ('+n+'×)':'I did this')+'</button>';
-      return '<div class="action"><div class="info"><b>'+a.b+'</b><span>'+a.s+'</span></div><span class="pt">+'+a.pt+'</span>'+btn+'</div>';
-    }).join('');
-  });
+  // two tables (grouped: eco, pol, soc order)
+  const order={eco:0,pol:1,soc:2};
+  const sortP=(a,b)=>order[a.p]-order[b.p];
+  document.getElementById('listAct').innerHTML=TASKS.filter(t=>t.cat==='act').sort(sortP).map(a=>rowHtml(st,a)).join('');
+  document.getElementById('listSelf').innerHTML=TASKS.filter(t=>t.cat==='self').sort(sortP).map(a=>rowHtml(st,a)).join('');
 
   // badges
   document.getElementById('badgeGrid').innerHTML=BADGES.map(b=>
