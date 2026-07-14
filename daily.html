@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Today's Imbalance — One Daily Fact on India's Political, Economic & Social Balance</title>
+<meta name="description" content="A new eye-opening fact every day: RTI costs ₹10, MPLADS funds, brand monopolies, wedding debt and more. 20 seconds a day, build your awareness streak. Free, no signup.">
+<link rel="canonical" href="https://clearkart1-a11y.github.io/balance/daily.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Balance">
+<meta property="og:title" content="Today's Imbalance 📅 — one fact a day that changes how you see the system">
+<meta property="og:description" content="20 seconds a day. Political, economic & social facts that most people never learn.">
+<meta property="og:url" content="https://clearkart1-a11y.github.io/balance/daily.html">
+<meta name="twitter:card" content="summary">
+<style>
+  :root{--ink:#1a1a2e;--paper:#faf8f4;--muted:#6b6b7b;--card:#fff;
+    --pol:#2c5f8a;--eco:#0f6e5c;--soc:#c8552c;--gold:#d9a324}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6}
+  .wrap{max-width:640px;margin:0 auto;padding:0 24px}
+  header{padding:16px 0;position:sticky;top:0;background:rgba(250,248,244,.95);backdrop-filter:blur(6px);z-index:10;border-bottom:1px solid #e5e0d5}
+  header .inner{max-width:1040px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center}
+  .logo{font-weight:800;font-size:1.2rem;letter-spacing:1px;text-decoration:none;color:var(--ink)}
+  .logo .dot{color:var(--soc)}
+  nav a{color:var(--muted);text-decoration:none;margin-left:16px;font-size:.85rem}
+  nav a.active{color:var(--gold);font-weight:700}
+  @media(max-width:640px){nav a{margin-left:10px;font-size:.78rem}}
+
+  .stage{padding:48px 0 64px;text-align:center}
+  .kicker{text-transform:uppercase;letter-spacing:2px;font-size:.72rem;color:var(--soc);font-weight:800;margin-bottom:6px}
+  .datestr{color:var(--muted);font-size:.85rem;margin-bottom:24px}
+
+  .fcard{border-radius:20px;padding:44px 32px;color:#fff;text-align:left;box-shadow:0 10px 30px rgba(26,26,46,.18);margin-bottom:24px;position:relative;overflow:hidden}
+  .fcard.pol{background:linear-gradient(135deg,var(--pol),#4a86b8)}
+  .fcard.eco{background:linear-gradient(135deg,var(--eco),#2ba184)}
+  .fcard.soc{background:linear-gradient(135deg,var(--soc),#e8845c)}
+  .fcard .ptag{display:inline-block;background:rgba(255,255,255,.2);border-radius:20px;padding:3px 14px;font-size:.7rem;letter-spacing:1.5px;font-weight:800;margin-bottom:18px}
+  .fcard .big{font-size:clamp(1.4rem,4.5vw,1.9rem);font-weight:800;line-height:1.35;margin-bottom:14px}
+  .fcard .ctx{font-size:.95rem;opacity:.9}
+  .fcard .num{position:absolute;right:-10px;bottom:-30px;font-size:9rem;font-weight:800;opacity:.08}
+
+  .actrow{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+  .btn{display:inline-block;background:var(--eco);color:#fff;padding:13px 30px;border-radius:10px;text-decoration:none;font-weight:700;font-size:.95rem;border:none;cursor:pointer}
+  .btn.dark{background:var(--ink)}
+  .btn.done{background:#d9d2c0;color:#6b6b7b;cursor:default}
+  .streakline{font-size:.9rem;color:var(--muted);margin-bottom:26px}
+  .streakline b{color:var(--ink)}
+  .tomorrow{background:var(--card);border:1px dashed #ddd5c4;border-radius:12px;padding:14px 20px;font-size:.88rem;color:var(--muted);max-width:420px;margin:0 auto 26px}
+  .next-links{font-size:.9rem;color:var(--muted)}
+  .next-links a{color:var(--eco);font-weight:700;text-decoration:none}
+  footer{padding:32px 0 48px;text-align:center;color:var(--muted);font-size:.82rem;border-top:1px solid #e5e0d5}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <a class="logo" href="index.html">BALANCE<span class="dot">.</span></a>
+    <nav>
+      <a href="political.html">Political</a>
+      <a href="economic.html">Economic</a>
+      <a href="social.html">Social</a>
+      <a href="actions.html">Act</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="daily.html" class="active">Daily</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="stage">
+    <div class="kicker">📅 Today's Imbalance</div>
+    <div class="datestr" id="datestr"></div>
+
+    <div class="fcard" id="fcard">
+      <span class="ptag" id="ptag"></span>
+      <div class="big" id="fbig"></div>
+      <div class="ctx" id="fctx"></div>
+      <div class="num" id="fnum"></div>
+    </div>
+
+    <div class="actrow">
+      <button class="btn" id="readBtn" onclick="markRead()">✓ I read today's (+3 pts)</button>
+      <button class="btn dark" onclick="shareWA()">📲 Share</button>
+    </div>
+    <div class="streakline">🔥 Daily streak: <b id="streakVal">0</b> — come back tomorrow for the next one</div>
+
+    <div class="tomorrow">💡 A new imbalance drops every day at midnight. 20 seconds a day — that's all awareness needs.</div>
+
+    <p class="next-links"><a href="quiz.html">Balance quiz 🧭</a> · <a href="monopoly.html">Monopoly quiz 🎮</a> · <a href="actions.html">take action 🎯</a></p>
+  </div>
+</div>
+
+<footer>
+  <p><strong>BALANCE.</strong> — An awareness platform for world equilibrium · Concept demo · 2026</p>
+</footer>
+
+<script>
+const SITE='https://clearkart1-a11y.github.io/balance/';
+const PNAME={pol:'POLITICAL',eco:'ECONOMIC',soc:'SOCIAL'};
+// Rotates by day of year. Facts phrased carefully; figures approximate & publicly reported.
+const FACTS=[
+ {p:'eco', big:'Thums Up, Limca and Maaza — your "desi" drinks — have been owned by Coca-Cola since 1993.', ctx:'Three generations of Indians grew up thinking they were choosing Indian. Awareness is step one.'},
+ {p:'pol', big:'An RTI application costs ₹10 — and the government must reply within 30 days.', ctx:'One of the world\'s strongest transparency laws sits unused in most households. Have you ever filed one?'},
+ {p:'soc', big:'The average Indian wedding is estimated to cost more than many families earn in 3 years.', ctx:'Meaning doesn\'t need a loan. Celebration within means is a radical act of social balance.'},
+ {p:'eco', big:'India\'s top 1% holds around 40% of the country\'s wealth.', ctx:'Reported by the World Inequality Lab. Every conscious rupee you spend is a small counterweight.'},
+ {p:'pol', big:'Every MP gets ₹5 crore per year (MPLADS) to develop your area.', ctx:'How much did yours actually use, and on what? That data is public. Go look — that\'s political awareness.'},
+ {p:'eco', big:'Kirana stores still handle the vast majority of India\'s grocery sales — but every year, a bigger slice moves to a few giant platforms.', ctx:'Your neighbourhood shop survives on habit. Yours.'},
+ {p:'soc', big:'"Wedding loans" are one of India\'s fast-growing personal loan categories.', ctx:'Families borrow to perform for society. The audience claps and leaves; the EMI stays.'},
+ {p:'pol', big:'In the 2019 Lok Sabha, only 4 of 543 winners were independents.', ctx:'Can a capable person win without a party machine? Political balance says they should be able to.'},
+ {p:'eco', big:'Amul is owned by roughly 36 lakh farmers.', ctx:'Proof that an Indian giant can distribute wealth instead of concentrating it. Balance is possible — it already exists.'},
+ {p:'pol', big:'Your ward councillor controls your streets, drains and parks — most people can\'t name theirs.', ctx:'The politician who affects your daily life most is the one nobody watches.'},
+ {p:'soc', big:'Most of what we call "tradition" is younger than we think — customs change every generation.', ctx:'If customs have always evolved, questioning one isn\'t betrayal. It\'s participation.'},
+ {p:'eco', big:'One soap aisle, a dozen "competing" brands — most owned by the same one or two companies.', ctx:'Competition on the shelf, monopoly in the boardroom. Play our Monopoly Quiz to see it yourself.'},
+ {p:'pol', big:'In dozens of seats, NOTA votes have exceeded the winner\'s victory margin.', ctx:'Even "none of the above" can outweigh the margin of power. Your vote is never noise.'},
+ {p:'soc', big:'An hour of community service does more for social balance than a hundred forwarded messages.', ctx:'Outrage is easy. Presence is rare. Be rare.'},
+];
+const KEY='balance_v0';
+function load(){try{return JSON.parse(localStorage.getItem(KEY))||{log:[],streak:0,lastDay:null}}catch(e){return{log:[],streak:0,lastDay:null}}}
+function save(st){localStorage.setItem(KEY,JSON.stringify(st))}
+
+const now=new Date();
+const start=new Date(now.getFullYear(),0,0);
+const doy=Math.floor((now-start)/864e5);
+const fact=FACTS[doy%FACTS.length];
+
+document.getElementById('datestr').textContent=now.toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+document.getElementById('fcard').classList.add(fact.p);
+document.getElementById('ptag').textContent=PNAME[fact.p]+' IMBALANCE';
+document.getElementById('fbig').textContent=fact.big;
+document.getElementById('fctx').textContent=fact.ctx;
+document.getElementById('fnum').textContent='#'+(doy%FACTS.length+1);
+
+function todayRead(st){
+  const today=new Date().toDateString();
+  return st.log.some(x=>x.id==='daily'&&new Date(x.t).toDateString()===today);
+}
+function renderBtn(){
+  const st=load();
+  document.getElementById('streakVal').textContent=st.streak;
+  const b=document.getElementById('readBtn');
+  if(todayRead(st)){b.className='btn done';b.textContent='Read today ✓';b.onclick=null;}
+}
+function markRead(){
+  const st=load();
+  if(todayRead(st))return;
+  const today=new Date().toDateString();
+  if(st.lastDay!==today){const y=new Date(Date.now()-864e5).toDateString();st.streak=(st.lastDay===y)?st.streak+1:1;st.lastDay=today;}
+  st.log.push({p:fact.p,id:'daily',cat:'self',pt:3,t:Date.now()});
+  save(st);renderBtn();
+}
+function shareWA(){
+  const txt='📅 Today\'s Imbalance:\n"'+fact.big+'"\n\nOne fact a day — '+SITE+'daily.html';
+  window.open('https://wa.me/?text='+encodeURIComponent(txt),'_blank');
+}
+renderBtn();
+</script>
+
+</body>
+</html>
